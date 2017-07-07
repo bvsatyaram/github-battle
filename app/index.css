@@ -53,6 +53,7 @@ ul.languages li.active {
 }
 
 .popular-avatar {
+  width: 10rem;
   height: 10rem;
   border-radius: 50%;
   border: 5px solid #e67e22;
