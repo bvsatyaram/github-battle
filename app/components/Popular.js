@@ -1,5 +1,6 @@
 var React = require('react');
 var LanguageSelector = require('./LanguageSelector');
+var RepoGrid = require('./RepoGrid');
 var api = require('../utils/api');
 
 class Popular extends React.Component {
@@ -44,7 +45,13 @@ class Popular extends React.Component {
           selectLanguage = {this.selectLanugage}
         />
 
-      {JSON.stringify(this.state.repos, null, 2)}
+      {!!this.state.repos
+        ? <RepoGrid
+          repos = {this.state.repos}
+        />
+      : <p>Loading...</p>
+      }
+
       </div>
     );
   }
