@@ -37,6 +37,29 @@ var fileLoaderOptions = {
   name: '[hash].[ext]'
 }
 
+var htmlWebpackPluginOptions = {
+  inject: false,
+  template: require('html-webpack-template'),
+  appMountId: 'app',
+  googleAnalytics: {
+    trackingId: 'UA-XXXX-XX',
+    pageViewOnLoad: true
+  },
+  meta: [
+    {
+      name: 'description',
+      content: 'Github Battle: Battle your friends and stiff.'
+    }
+  ],
+  title: 'Github Battle'
+}
+
+if(process.env.NODE_ENV === 'production') {
+  htmlWebpackPluginOptions.baseHref = 'http://www.bvsatyaram.com/github-battle';
+} else {
+  htmlWebpackPluginOptions.devServer = 'http://localhost:8080';
+}
+
 var config = {
   entry: './app/index.js',
   output: {
@@ -67,9 +90,7 @@ var config = {
     historyApiFallback: true
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: 'app/index.html'
-    })
+    new HtmlWebpackPlugin(htmlWebpackPluginOptions)
   ]
 }
 
