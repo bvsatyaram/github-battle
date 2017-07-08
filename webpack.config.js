@@ -41,7 +41,8 @@ var config = {
   entry: './app/index.js',
   output: {
     path: path.resolve(__dirname, 'docs'),
-    filename: 'index.bundle.js'
+    filename: 'index.bundle.js',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -61,6 +62,9 @@ var config = {
         ]
       }
     ]
+  },
+  devServer: {
+    historyApiFallback: true
   },
   plugins: [
     new HtmlWebpackPlugin({
