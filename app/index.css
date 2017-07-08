@@ -11,6 +11,14 @@ body {
   text-align: center;
 }
 
+nav.nav a {
+  margin-right: 1rem;
+}
+
+nav.nav a.active {
+  font-weight: bold;
+}
+
 ul {
   padding: 0;
 }
