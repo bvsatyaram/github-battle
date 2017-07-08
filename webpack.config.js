@@ -60,13 +60,21 @@ if(process.env.NODE_ENV === 'production') {
   htmlWebpackPluginOptions.devServer = 'http://localhost:8080';
 }
 
+var outputOptions = {
+  path: path.resolve(__dirname, 'docs'),
+  filename: 'index.bundle.js',
+  publicPath: '/'
+}
+
+if(process.env.NODE_ENV === 'production') {
+  outputOptions.publicPath = '/github-battle/';
+} else {
+  outputOptions.publicPath = '/';
+}
+
 var config = {
   entry: './app/index.js',
-  output: {
-    path: path.resolve(__dirname, 'docs'),
-    filename: 'index.bundle.js',
-    publicPath: '/'
-  },
+  output: outputOptions,
   module: {
     rules: [
       { test: /\.(js)$/, use: 'babel-loader' },
