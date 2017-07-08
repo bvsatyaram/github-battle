@@ -10,8 +10,15 @@ var Popular = require('./Popular');
 
 class App extends React.Component {
   render() {
+    var basePath;
+
+    if(process.env.NODE_ENV === 'production') {
+      basePath = '/github-battle';
+    } else {
+      basePath = '';
+    }
     return (
-      <Router>
+      <Router basename={basePath}>
         <div className='container'>
           <Nav />
           <Route exact path='/' component={Home} />
