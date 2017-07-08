@@ -55,7 +55,7 @@ var htmlWebpackPluginOptions = {
 }
 
 if(process.env.NODE_ENV === 'production') {
-  htmlWebpackPluginOptions.baseHref = 'http://www.bvsatyaram.com/github-battle';
+  htmlWebpackPluginOptions.baseHref = 'http://www.bvsatyaram.com/github-battle/';
 } else {
   htmlWebpackPluginOptions.devServer = 'http://localhost:8080';
 }
